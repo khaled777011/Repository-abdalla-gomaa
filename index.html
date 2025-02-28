@@ -3,39 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عداد الوقت منذ 27 فبراير 2025</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #timer {
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
+    <title>هزيمة محمود الخطيب</title>
 </head>
 <body>
-    <h1>مر على هذا الوقت</h1>
-    <div id="timer">جاري الحساب...</div>
 
-    <script>
-        function updateTimer() {
-            const startTime = new Date("2025-02-27T21:05:00").getTime();
-            const now = new Date().getTime();
-            const elapsed = now - startTime;
+<h2 id="timePassed"></h2>
 
-            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+<script>
+    function updateTime() {
+        // حدد الوقت الأساسي للهزيمة
+        let eventTime = new Date("2024-02-28T00:00:00"); // عدل التاريخ هنا
+        let currentTime = new Date();
+        let diff = Math.floor((currentTime - eventTime) / 1000); // الفارق بالثواني
 
-            document.getElementById("timer").innerHTML = `${days} يوم و ${hours} ساعة و ${minutes} دقيقة و ${seconds} ثانية`;
-        }
+        let days = Math.floor(diff / (60 * 60 * 24));
+        let hours = Math.floor((diff % (60 * 60 * 24)) / (60 * 60));
+        let minutes = Math.floor((diff % (60 * 60)) / 60);
+        let seconds = diff % 60;
 
-        setInterval(updateTimer, 1000);
-        updateTimer();
-    </script>
+        document.getElementById("timePassed").innerHTML = `هزيمة محمود الخطيب من عبدالله جمعه مر عليها ${days} يوم و ${hours} ساعة و ${minutes} دقيقة و ${seconds} ثانية`;
+    }
+
+    setInterval(updateTime, 1000); // تحديث كل ثانية
+    updateTime(); // استدعاء أولي
+</script>
+
 </body>
 </html>
